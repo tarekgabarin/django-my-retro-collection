@@ -4,4 +4,4 @@ exclude =
     __pycache__,
     manage.py,
     settings.py,
-    
+ignore = E302,E303,W292,E501
