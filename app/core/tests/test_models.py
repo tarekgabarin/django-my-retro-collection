@@ -11,7 +11,7 @@ class ModelTests(TestCase):
     def test_if_create_user_with_email_successful(self):
         """Test if can successfully create a user with an email"""
 
-        test_password = "testing123"
+        test_password = "Testing123!"
         test_email = "example@test.com"
         
         test_user = get_user_model().objects.create_user(
@@ -31,13 +31,13 @@ class ModelTests(TestCase):
         ]
 
         for inputted_email, expected in arr_of_test_sample_emails:
-            created_user = get_user_model().objects.create_user(inputted_email, "testing123")
+            created_user = get_user_model().objects.create_user(inputted_email, "Testing123!")
             self.assertEqual(created_user.email, expected)
 
     def test_if_creating_user_without_email_throws_error(self):
         """Test to see if creating a user without an email provided throws a ValueError"""
         with self.assertRaises(ValueError):
-            get_user_model().objects.create_user('', 'testing123')
+            get_user_model().objects.create_user('', 'Testing123!')
 
     def test_if_create_superuser(self):
         """Testing to see if a superuser can be created"""
