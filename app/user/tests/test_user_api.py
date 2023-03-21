@@ -25,9 +25,7 @@ class TestsForPublicUserApi(TestCase):
             "password": "rocketSock@#12",
             "name": "John Doe"
         }
-        print(CREATE_USER_URL)
         response_from_post_request = self.client.post(CREATE_USER_URL, payload)
-        print(response_from_post_request.request)
         self.assertEqual(response_from_post_request.status_code, status.HTTP_201_CREATED)
         
         created_user = get_user_model().objects.get(email=payload['email'])

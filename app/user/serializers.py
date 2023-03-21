@@ -25,17 +25,13 @@ class UserSerializer(serializers.ModelSerializer):
         except ValidationError as e:
             errors['password'] = list(e.messages)
         
-        print(errors)
-
         if errors:
             raise serializers.ValidationError(errors)
         
-        return entered_password
+        return data
 
 
     def create(self, validated_data):
         """Upon data being validated as correct, create and return user with encrypted password"""
-        print('create function of serializer running at line 34')
-        print(validated_data)
         created_user = get_user_model().objects.create_user(**validated_data)
         return created_user
