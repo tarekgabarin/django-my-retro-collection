@@ -5,6 +5,7 @@ import django.contrib.auth.password_validation as validators
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from django.core.exceptions import ValidationError
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -19,7 +20,6 @@ class UserSerializer(serializers.ModelSerializer):
         entered_password = data.get('password')
         errors = dict()
         user = get_user_model()
-        print(entered_password)
         try:
             validators.validate_password(password=entered_password, user=user)
         except ValidationError as e:
@@ -33,5 +33,9 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """Upon data being validated as correct, create and return user with encrypted password"""
+        password = validated_data.pop('password', None)
         created_user = get_user_model().objects.create_user(**validated_data)
+        if password is not None:
+            created_user.set_password(password)
+        created_user.save()
         return created_user
