@@ -2,6 +2,9 @@ from django.contrib import admin # noqa
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 from core import models
+from game.models import Game
+from tag.models import Tag
+from gameconsole.models import GameConsole
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
@@ -36,3 +39,6 @@ class UserAdmin(BaseUserAdmin):
     )
 
 admin.site.register(models.User, UserAdmin)
+admin.site.register(Game)
+admin.site.register(Tag)
+admin.site.register(GameConsole)
