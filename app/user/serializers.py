@@ -1,5 +1,5 @@
 """
-Serializers fopr the user API view
+Serializers for the user API view
 """
 import django.contrib.auth.password_validation as validators
 from django.contrib.auth import get_user_model

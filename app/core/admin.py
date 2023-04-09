@@ -5,6 +5,8 @@ from core import models
 from game.models import Game
 from tag.models import Tag
 from gameconsole.models import GameConsole
+from publisher.models import Publisher
+from consolemaker.models import ConsoleMaker
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
@@ -42,3 +44,5 @@ admin.site.register(models.User, UserAdmin)
 admin.site.register(Game)
 admin.site.register(Tag)
 admin.site.register(GameConsole)
+admin.site.register(Publisher)
+admin.site.register(ConsoleMaker)

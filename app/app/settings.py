@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'user',
     'game',
     'tag',
-    'gameconsole'
+    'gameconsole',
+    'publisher',
+    'consolemaker'
 ]
 
 MIDDLEWARE = [
