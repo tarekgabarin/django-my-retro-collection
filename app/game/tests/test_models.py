@@ -278,7 +278,7 @@ class GameTests(TestCase):
         
         doom_obj = Game.objects.get(title=self.doom_game.title)
         quake_obj = Game.objects.get(title=self.quake_game.title)
-        contra_obj = Game.objects.get(title=self.contra_game)
+        contra_obj = Game.objects.get(title=self.contra_game.title)
 
         expected_result_general_shooter = sorted([doom_obj.title, quake_obj.title, contra_obj.title])
         actual_result_general_shooter = sorted([obj['title'] for obj in games_under_general_shooter_category])
