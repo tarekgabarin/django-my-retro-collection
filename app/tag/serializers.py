@@ -3,5 +3,5 @@ from tag.models import Tag
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['name']
+        fields = ['id', 'name']
         model = Tag

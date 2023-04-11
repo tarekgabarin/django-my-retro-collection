@@ -3,5 +3,5 @@ from publisher.models import Publisher
 
 class PublisherSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['name']
+        fields = ["id", "name"]
         model = Publisher
