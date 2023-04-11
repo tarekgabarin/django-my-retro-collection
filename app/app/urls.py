@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from gameconsole.views import GameConsoleViewSet
+from rest_framework import routers  
+
+gameconsoles_router = routers.DefaultRouter()
+gameconsoles_router.register("", GameConsoleViewSet, basename='gameconsole')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +28,6 @@ urlpatterns = [
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='api-docs'),
     path('api/user/', include('user.urls')),
     path('api/games/', include('game.urls')),
+    path('api/tag/', include('tag.urls')),
+    path('api/gameconsoles/', include(gameconsoles_router.urls))
 ]
