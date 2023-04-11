@@ -29,5 +29,6 @@ urlpatterns = [
     path('api/user/', include('user.urls')),
     path('api/games/', include('game.urls')),
     path('api/tag/', include('tag.urls')),
-    path('api/gameconsoles/', include(gameconsoles_router.urls))
+    path('api/gameconsoles/', include(gameconsoles_router.urls)),
+    path('api/publisher/', include('publisher.urls'))
 ]

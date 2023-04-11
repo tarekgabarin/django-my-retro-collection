@@ -64,7 +64,6 @@ class TestsForConsoleMaker(TestCase):
             "name_code": "XB"
         }
         response_from_create = self.client.post(URL_FOR_POST_LIST_GAME_CONSOLE, payload)
-        print()
         id_of_created_console = response_from_create.data['id']
         self.assertEqual(response_from_create.status_code, status.HTTP_201_CREATED)
         
@@ -74,7 +73,6 @@ class TestsForConsoleMaker(TestCase):
             "name": correct_name,
             "name_code": "XB"
         }
-        print(id_of_created_console)
         response_from_put = self.client.put(reverse(URL_FOR_PUT_DETAIL_GAME_CONSOLE, args=[id_of_created_console]), put_payload)
         self.assertEqual(response_from_put.status_code, status.HTTP_200_OK)
 
